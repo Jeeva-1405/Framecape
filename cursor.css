@@ -1,0 +1,362 @@
+/* ========================================
+   LIQUID MORPHING CURSOR SYSTEM
+   ======================================== */
+
+/* Hide default cursor */
+* {
+    cursor: none !important;
+}
+
+/* Main Cursor Container */
+.cursor-quantum {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+/* Liquid Blob Core */
+.quantum-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #ff006e, #8338ec, #3a86ff);
+    background-size: 200% 200%;
+    border-radius: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    animation: liquidMorph 4s ease-in-out infinite;
+    box-shadow:
+        0 0 15px rgba(255, 0, 110, 0.5),
+        0 0 30px rgba(131, 56, 236, 0.3);
+    transition: all 0.15s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform, border-radius;
+}
+
+@keyframes liquidMorph {
+
+    0%,
+    100% {
+        border-radius: 50%;
+        transform: translate3d(-50%, -50%, 0) rotate(0deg);
+    }
+
+    50% {
+        border-radius: 40% 60% 70% 30% / 50% 30% 70% 50%;
+        transform: translate3d(-50%, -50%, 0) rotate(180deg);
+    }
+}
+
+
+
+/* Trailing Particles */
+.quantum-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, rgba(255, 0, 110, 0.8), transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: particleOrbit1 2s ease-in-out infinite;
+    filter: blur(2px);
+}
+
+@keyframes particleOrbit1 {
+
+    0%,
+    100% {
+        transform: translate3d(-50%, -80%, 0);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.quantum-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, rgba(131, 56, 236, 0.8), transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: particleOrbit2 2s ease-in-out infinite 0.5s;
+    filter: blur(2px);
+}
+
+@keyframes particleOrbit2 {
+
+    0%,
+    100% {
+        transform: translate3d(-20%, -50%, 0);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Data Display - Now shows creative symbol */
+.quantum-data {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8px;
+    font-family: 'Courier New', monospace;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 700;
+    letter-spacing: 2px;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    text-shadow: 0 0 10px rgba(255, 0, 110, 0.8);
+    pointer-events: none;
+}
+
+.quantum-data span {
+    display: none;
+}
+
+.quantum-data::before {
+    content: '◆';
+    display: block;
+    font-size: 16px;
+    animation: symbolRotate 2s steps(4) infinite;
+}
+
+@keyframes symbolRotate {
+    0% {
+        content: '◆';
+    }
+
+    25% {
+        content: '◇';
+    }
+
+    50% {
+        content: '◈';
+    }
+
+    75% {
+        content: '◇';
+    }
+
+    100% {
+        content: '◆';
+    }
+}
+
+/* Hover State - Explode Effect */
+.cursor-quantum.hovering .quantum-core {
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(135deg, #ff006e, #ff4d6d, #ff006e);
+    background-size: 200% 200%;
+    animation: liquidMorph 1.5s ease-in-out infinite, gradientShift 2s ease infinite, hoverPulse 0.6s ease-in-out infinite;
+    box-shadow:
+        0 0 30px rgba(255, 0, 110, 1),
+        0 0 60px rgba(255, 77, 109, 0.8),
+        0 0 90px rgba(255, 0, 110, 0.6);
+}
+
+@keyframes hoverPulse {
+
+    0%,
+    100% {
+        transform: translate3d(-50%, -50%, 0) scale(1);
+    }
+
+    50% {
+        transform: translate3d(-50%, -50%, 0) scale(1.05);
+    }
+}
+
+.cursor-quantum.hovering .quantum-data {
+    opacity: 1;
+}
+
+/* Magnetic Trail Effect */
+.cursor-quantum::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, rgba(131, 56, 236, 0.3), transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: magneticPulse 2s ease-out infinite;
+    filter: blur(10px);
+}
+
+@keyframes magneticPulse {
+    0% {
+        width: 40px;
+        height: 40px;
+        opacity: 0.8;
+    }
+
+    100% {
+        width: 80px;
+        height: 80px;
+        opacity: 0;
+    }
+}
+
+/* Glitch Effect on Hover */
+.cursor-quantum.hovering::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(135deg, rgba(255, 0, 110, 0.3), rgba(58, 134, 255, 0.3));
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: glitchShift 0.3s ease-in-out infinite;
+    filter: blur(5px);
+}
+
+@keyframes glitchShift {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) translate(0, 0);
+        opacity: 0.5;
+    }
+
+    25% {
+        transform: translate(-50%, -50%) translate(-3px, 3px);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) translate(3px, -3px);
+        opacity: 0.3;
+    }
+
+    75% {
+        transform: translate(-50%, -50%) translate(-2px, -2px);
+        opacity: 0.6;
+    }
+}
+
+/* Additional Particle Effects */
+.cursor-quantum::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background: rgba(58, 134, 255, 0.6);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: particleFloat 3s ease-in-out infinite;
+    filter: blur(1px);
+}
+
+@keyframes particleFloat {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) translate(-20px, -20px);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) translate(20px, 20px);
+        opacity: 1;
+    }
+}
+
+/* Responsive - Hide on touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .cursor-quantum {
+        display: none;
+    }
+
+    * {
+        cursor: auto !important;
+    }
+}
+
+/* Click Animation - Explosive Burst */
+.cursor-quantum.clicking .quantum-core {
+    animation: clickBurst 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes clickBurst {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        background: linear-gradient(135deg, #ff006e, #8338ec, #3a86ff);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(0.5);
+        background: linear-gradient(135deg, #ffff00, #ff006e, #ffff00);
+        box-shadow:
+            0 0 40px rgba(255, 255, 0, 1),
+            0 0 80px rgba(255, 0, 110, 0.8);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.2);
+        background: linear-gradient(135deg, #ff006e, #8338ec, #3a86ff);
+    }
+}
+
+/* Click Ripple Effect */
+.cursor-quantum.clicking::before {
+    animation: clickRipple 0.6s ease-out;
+}
+
+@keyframes clickRipple {
+    0% {
+        width: 40px;
+        height: 40px;
+        opacity: 1;
+        background: radial-gradient(circle, rgba(255, 255, 0, 0.8), transparent 70%);
+    }
+
+    100% {
+        width: 120px;
+        height: 120px;
+        opacity: 0;
+        background: radial-gradient(circle, rgba(255, 0, 110, 0.6), transparent 70%);
+    }
+}
+
+/* Click Particle Burst */
+.cursor-quantum.clicking .quantum-orbit,
+.cursor-quantum.clicking .quantum-ring {
+    animation: particleBurst 0.5s ease-out;
+}
+
+@keyframes particleBurst {
+    0% {
+        transform: translate(-50%, -50%) translate(0, 0);
+        opacity: 1;
+        width: 12px;
+        height: 12px;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) translate(0, -60px);
+        opacity: 0;
+        width: 20px;
+        height: 20px;
+    }
+}
