@@ -25,7 +25,7 @@ app.use(helmet({
 }));
 
 // 2. CORS configuration
-app.use(cors({ origin: ['http://localhost:3000', 'https://framecape.qzz.io', 'https://jeeva-1405.github.io'] }));
+app.use(cors({ origin: ['http://localhost:3000', 'https://framecape.com', 'https://jeeva-1405.github.io'] }));
 
 app.use(express.json());
 
