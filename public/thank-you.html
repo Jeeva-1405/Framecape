@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Framecape | Payment Confirmed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/rog-fonts" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+        }
+
+        /* Logo */
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: -0.02em;
+            color: #fff;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: baseline;
+        }
+
+        .logo .f {
+            color: #ff0015;
+        }
+
+        .logo .cape {
+            font-family: 'ROG Fonts', 'Orbitron', sans-serif;
+            font-weight: 400;
+            font-size: 0.65em;
+            letter-spacing: 0.05em;
+            color: #777474;
+            margin-left: 2px;
+        }
+
+        .logo .cape span {
+            color: #777474;
+        }
+
+        .logo .dot {
+            color: #888;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Green tick circle */
+        .tick-circle {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 2.5px solid #00cc6a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(0, 204, 106, 0.25);
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+        }
+
+        @keyframes popIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .tick-circle svg {
+            width: 42px;
+            height: 42px;
+        }
+
+        .check-path {
+            stroke: #00cc6a;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            stroke-dasharray: 55;
+            stroke-dashoffset: 55;
+            animation: drawCheck 0.45s 0.4s ease forwards;
+        }
+
+        @keyframes drawCheck {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* Text */
+        .heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            animation: fadeUp 0.5s 0.3s both;
+        }
+
+        .sub {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.45);
+            animation: fadeUp 0.5s 0.45s both;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Button */
+        .btn {
+            margin-top: 8px;
+            display: inline-block;
+            padding: 11px 30px;
+            background: #ff0015;
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background 0.2s, box-shadow 0.2s;
+            animation: fadeUp 0.5s 0.55s both;
+        }
+
+        .btn:hover {
+            background: #d40012;
+            box-shadow: 0 0 20px rgba(255, 0, 21, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="index.html" class="logo">
+        <span class="f">F</span>RAME<span class="cape"><span>C</span>APE</span><span class="dot">.</span>
+    </a>
+
+    <div class="tick-circle">
+        <svg viewBox="0 0 44 44">
+            <path class="check-path" d="M10 22 L19 31 L34 13" />
+        </svg>
+    </div>
+
+    <h1 class="heading">Payment Confirmed</h1>
+
+    <a href="index.html" class="btn">← Back to Home</a>
+
+</body>
+
+</html>

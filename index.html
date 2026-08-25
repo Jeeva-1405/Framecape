@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' *; script-src 'self' * 'unsafe-inline' 'unsafe-eval'; style-src 'self' * 'unsafe-inline'; font-src 'self' * data:; img-src 'self' * data:; connect-src 'self' *; frame-src 'self' *;">
+    <meta name="description"
+        content="Framecape - Professional Freelancing Web Development. We build premium, trustworthy, and high-performance digital experiences.">
+    <title>Framecape | Premium Web Development</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cursor.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/rog-fonts" rel="stylesheet">
+    <script src="https://checkout.razorpay.com/v1/checkout.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="cursor-quantum">
+        <div class="quantum-core"></div>
+        <div class="quantum-orbit"></div>
+        <div class="quantum-ring"></div>
+        <div class="quantum-data">
+            <span class="q-coord-x">X: 0</span>
+            <span class="q-coord-y">Y: 0</span>
+            <span class="q-status">READY</span>
+        </div>
+    </div>
+
+    <!-- Creative Notification Container -->
+    <div id="notification-zone" class="framecape-notify"></div>
+
+    <nav class="command-dock">
+        <div class="dock-wrapper">
+            <!-- Left Module: Logo & Status -->
+            <div class="dock-module module-left">
+                <a href="#" class="logo" style="color: #ffffff;"><span style="color: #ff0000;">F</span>RAME<span
+                        class="cape-suffix"><span style="color: #7f7171;">C</span>APE</span><span
+                        style="color: #888888;">.</span></a>
+            </div>
+
+            <!-- Center Module: Navigation -->
+            <div class="dock-module module-center">
+                <div class="dock-links">
+                    <a href="#services" class="dock-link">SERVICES</a>
+                    <a href="#work" class="dock-link">WORK</a>
+                    <a href="#testimonials" class="dock-link">REVIEWS </a>
+                    <a href="#pricing" class="dock-link">PRICING</a>
+                </div>
+            </div>
+
+            <!-- Right Module: Action -->
+            <div class="dock-module module-right">
+                <a href="#contact" class="dock-cta">
+                    <span class="cta-bracket">[</span>
+                    CONTACT
+                    <span class="cta-bracket">]</span>
+                </a>
+            </div>
+
+            <!-- Visual Hardware Accents -->
+            <div class="dock-end-cap left"></div>
+            <div class="dock-end-cap right"></div>
+            <div class="dock-runner"></div>
+        </div>
+        <div class="dock-shadow"></div>
+    </nav>
+
+    <header class="hero-v2">
+        <div class="hero-background">
+            <div class="grid-overlay"></div>
+            <div class="radial-glow"></div>
+            <div class="hero-video-wrap">
+                <div class="hero-parallax-bg" id="hero-bg"></div>
+            </div>
+            <div class="scanline-overlay"></div>
+        </div>
+
+        <div class="hero-interfaces">
+            <div class="interface-bottom-right">
+                <div class="scroll-prompt">
+                    <div class="scroll-line"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-content-v2">
+            <div class="hero-branding">
+                <span class="hero-logo-text"><span style="color: #ff0000;">F</span>RAME<span class="cape-suffix"><span
+                            style="color: #777474;">C</span>APE</span><span style="color: #888888;">.</span></span>
+            </div>
+            <div class="hero-heading-wrap">
+                <h1 class="hero-title">
+                    <span class="title-row accent-row">
+                        <span class="word text-outline" data-word="WE BUILD WEBSITES THAT BUILD BUSINESSES">WE BUILD
+                            WEBSITES THAT BUILD BUSINESSES</span>
+                    </span>
+                </h1>
+            </div>
+
+            <div class="hero-footer-v2">
+                <p class="hero-description quality-protocol">
+
+                    <span class="protocol-value">NO COMPROMISE IN QUALITY</span>
+                </p>
+                <div class="hero-actions-v2">
+                    <a href="https://calendly.com/commiewebdevelopment/new-meeting" target="_blank"
+                        rel="noopener noreferrer" class="btn-primary-v2">
+                        <span class="btn-label">BOOK A MEET</span>
+                        <span class="btn-icon">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+    <section id="services" class="services-section">
+        <div class="services-terminal-header">
+            <div class="header-monitor">
+                <h2>SERVICES</h2>
+            </div>
+            <div class="header-deco">
+                <div class="deco-dot"></div>
+                <div class="deco-line"></div>
+                <span class="deco-text"></span>
+            </div>
+        </div>
+
+        <div class="services-kinetic-list">
+            <!-- Service 01 -->
+            <div class="kinetic-item" data-index="01">
+                <div class="kinetic-scanline"></div>
+                <div class="kinetic-bg-text">STATIC</div>
+                <div class="kinetic-content">
+                    <div class="kinetic-icon">
+                        <div class="icon-glow"></div>
+                        <div class="icon-accent"></div>
+                        <svg viewBox="0 0 100 100">
+                            <!-- Tactical Brackets -->
+                            <path d="M30 20 L15 20 L15 80 L30 80" fill="none" stroke="currentColor" stroke-width="2" />
+                            <path d="M70 20 L85 20 L85 80 L70 80" fill="none" stroke="currentColor" stroke-width="2" />
+                            <!-- Internal Circuit -->
+                            <path d="M35 50 L45 50" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 2" />
+                            <circle cx="50" cy="50" r="10" stroke="currentColor" stroke-width="2" fill="none"
+                                class="animate-path" />
+                            <path d="M55 50 L65 50" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 2" />
+                            <path d="M50 35 L50 40" stroke="currentColor" stroke-width="2" />
+                            <path d="M50 60 L50 65" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="kinetic-info">
+                        <h3>Static Website</h3>
+                        <p>High-performance, lightning-fast static interfaces built with modern industrial precision.
+                            Optimized for speed and security.</p>
+                        <div class="service-tech">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JAVASCRIPT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 02 -->
+            <div class="kinetic-item" data-index="02">
+                <div class="kinetic-scanline"></div>
+                <div class="kinetic-bg-text">SEO</div>
+                <div class="kinetic-content">
+                    <div class="kinetic-icon">
+                        <div class="icon-glow"></div>
+                        <div class="icon-accent"></div>
+                        <svg viewBox="0 0 100 100">
+                            <!-- Radar Ring -->
+                            <circle cx="45" cy="45" r="25" stroke="currentColor" stroke-width="1.5" fill="none"
+                                stroke-dasharray="4 4" />
+                            <!-- Search Core -->
+                            <circle cx="45" cy="45" r="30" stroke="currentColor" stroke-width="3" fill="none" />
+                            <!-- Handle -->
+                            <line x1="68" y1="68" x2="85" y2="85" stroke="currentColor" stroke-width="6"
+                                stroke-linecap="round" />
+                            <!-- Moving Scan -->
+                            <line x1="45" y1="45" x2="45" y2="15" stroke="var(--red)" stroke-width="2"
+                                class="animate-path">
+                                <animateTransform attributeName="transform" type="rotate" from="0 45 45" to="360 45 45"
+                                    dur="4s" repeatCount="indefinite" />
+                            </line>
+                        </svg>
+                    </div>
+                    <div class="kinetic-info">
+                        <h3>Basic SEO</h3>
+                        <p>Search engine optimization fundamentals to dominate search results and increase organic
+                            visibility through tactical data structuring.</p>
+                        <div class="service-tech">
+                            <span>META_TAGS</span>
+                            <span>SEARCH_ENGINE</span>
+                            <span>ANALYTICS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 03 -->
+            <div class="kinetic-item" data-index="03">
+                <div class="kinetic-scanline"></div>
+                <div class="kinetic-bg-text">REDESIGN</div>
+                <div class="kinetic-content">
+                    <div class="kinetic-icon">
+                        <div class="icon-glow"></div>
+                        <div class="icon-accent"></div>
+                        <svg viewBox="0 0 100 100">
+                            <!-- Isometric Frame -->
+                            <path d="M50 15 L85 35 L85 75 L50 95 L15 75 L15 35 Z" fill="none" stroke="currentColor"
+                                stroke-width="1.5" />
+                            <!-- Tech Core Cube -->
+                            <path d="M50 35 L75 50 L50 65 L25 50 Z" fill="rgba(255,0,0,0.1)" stroke="var(--red)"
+                                stroke-width="2" />
+                            <path d="M25 50 L25 75 L50 90 L50 65 Z" fill="none" stroke="currentColor"
+                                stroke-width="1.5" />
+                            <path d="M75 50 L75 75 L50 90 L50 65 Z" fill="none" stroke="currentColor"
+                                stroke-width="1.5" />
+                            <!-- Connection Nodes -->
+                            <circle cx="15" cy="35" r="3" fill="var(--red)" />
+                            <circle cx="85" cy="35" r="3" fill="var(--red)" />
+                            <circle cx="50" cy="95" r="3" fill="var(--red)" />
+                        </svg>
+                    </div>
+                    <div class="kinetic-info">
+                        <h3>Website Redesign</h3>
+                        <p>Re-engineering legacy platforms into modern, high-performance digital artillery with fresh
+                            UI/UX and optimized performance.</p>
+                        <div class="service-tech">
+                            <span>UI_REVAMP</span>
+                            <span>PERF_TUN</span>
+                            <span>MODERN_STK</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 04 -->
+            <div class="kinetic-item" data-index="04">
+                <div class="kinetic-scanline"></div>
+                <div class="kinetic-bg-text">DYNAMIC</div>
+                <div class="kinetic-content">
+                    <div class="kinetic-icon">
+                        <div class="icon-glow"></div>
+                        <div class="icon-accent"></div>
+                        <svg viewBox="0 0 100 100">
+                            <!-- Main Processor Rect -->
+                            <rect x="25" y="25" width="50" height="50" rx="10" fill="none" stroke="currentColor"
+                                stroke-width="2.5" />
+                            <!-- Dynamic Pulses -->
+                            <rect x="35" y="35" width="30" height="30" rx="5" fill="var(--red)" opacity="0.4">
+                                <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2s"
+                                    repeatCount="indefinite" />
+                            </rect>
+                            <!-- IO Pins -->
+                            <line x1="50" y1="10" x2="50" y2="25" stroke="currentColor" stroke-width="2" />
+                            <line x1="50" y1="75" x2="50" y2="90" stroke="currentColor" stroke-width="2" />
+                            <line x1="10" y1="50" x2="25" y2="50" stroke="currentColor" stroke-width="2" />
+                            <line x1="75" y1="50" x2="90" y2="50" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="kinetic-info">
+                        <h3>Dynamic Website</h3>
+                        <p>Scalable, feature-rich web applications with real-time data orchestration and complex logic.
+                            Built for total operational dominance.</p>
+                        <div class="service-tech">
+                            <span>REACT</span>
+                            <span>NODE_JS</span>
+                            <span>MONGODB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="work">
+        <div class="container">
+            <div class="section-header">
+                <h2>OUR WORKS</h2>
+            </div>
+            <div class="work-grid">
+                <!-- Project 01 -->
+                <div class="work-item reveal-element">
+                    <div class="work-img-wrapper">
+                        <img src="work1.png" alt="Project 1">
+                        <div class="work-hud">
+                            <div class="hud-corner hud-tl"></div>
+                            <div class="hud-corner hud-tr"></div>
+                            <div class="hud-corner hud-bl"></div>
+                            <div class="hud-corner hud-br"></div>
+                            <div class="hud-scan"></div>
+                        </div>
+                    </div>
+                    <div class="work-item-content">
+                        <span class="work-op-id">WORK - 01</span>
+                        <div class="work-info">
+                            <h3>SPEEDEX</h3>
+                            <p>A high-performance fintech command center designed for aggressive asset management and
+                                real-time fiscal intelligence.</p>
+                        </div>
+                        <div class="work-item-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>NEXT.JS</span>
+                        </div>
+                        <a href="https://nareshdharmaraj.github.io/SpeedEX/" class="view-project-btn">VISIT SITE</a>
+                    </div>
+                </div>
+
+                <!-- Project 02 -->
+                <div class="work-item reveal-element">
+                    <div class="work-img-wrapper">
+                        <img src="work2.png" alt="Project 2">
+                        <div class="work-hud">
+                            <div class="hud-corner hud-tl"></div>
+                            <div class="hud-corner hud-tr"></div>
+                            <div class="hud-corner hud-bl"></div>
+                            <div class="hud-corner hud-br"></div>
+                            <div class="hud-scan"></div>
+                        </div>
+                    </div>
+                    <div class="work-item-content">
+                        <span class="work-op-id">WORK - 02</span>
+                        <div class="work-info">
+                            <h3>LEXSPACE</h3>
+                            <p>An immersive luxury commerce portal with architectural focus on artisanal chronometers
+                                and precision movements.</p>
+                        </div>
+
+                        <div class="work-item-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>NEXT.JS</span>
+                        </div>
+                        <a href="https://nareshdharmaraj.github.io/Lexspace/" class="view-project-btn">VISIT SITE</a>
+                    </div>
+
+                </div>
+
+                <!-- Project 03 -->
+                <div class="work-item reveal-element">
+                    <div class="work-img-wrapper">
+                        <img src="ironclad.png" alt="Project 3">
+                        <div class="work-hud">
+                            <div class="hud-corner hud-tl"></div>
+                            <div class="hud-corner hud-tr"></div>
+                            <div class="hud-corner hud-bl"></div>
+                            <div class="hud-corner hud-br"></div>
+                            <div class="hud-scan"></div>
+                        </div>
+                    </div>
+                    <div class="work-item-content">
+                        <span class="work-op-id">WORK - 03</span>
+                        <div class="work-info">
+                            <h3>LEXCOUNSEL</h3>
+                            <p>A premier global legal advisory platform specializing in elite advocacy, risk
+                                immunization, and AI governance frameworks.</p>
+                        </div>
+                        <div class="work-item-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>NEXT.JS</span>
+                        </div>
+                        <a href="https://nareshdharmaraj.github.io/Lexcounsel/" target="_blank"
+                            class="view-project-btn">VISIT SITE</a>
+                    </div>
+                </div>
+
+                <!-- Project 04 -->
+                <div class="work-item reveal-element">
+                    <div class="work-img-wrapper">
+                        <img src="club site.png" alt="Project 4">
+                        <div class="work-hud">
+                            <div class="hud-corner hud-tl"></div>
+                            <div class="hud-corner hud-tr"></div>
+                            <div class="hud-corner hud-bl"></div>
+                            <div class="hud-corner hud-br"></div>
+                            <div class="hud-scan"></div>
+                        </div>
+                    </div>
+                    <div class="work-item-content">
+                        <span class="work-op-id">WORK - 04</span>
+                        <div class="work-info">
+                            <h3>CLUB WEBSITE</h3>
+                            <p>A Interactive static website for various event based clubs of M. Kumarasamy College of
+                                Engineering</p>
+                        </div>
+                        <div class="work-item-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                        </div>
+                        <a href="https://clubs.mkce.ac.in/" class="view-project-btn">VISIT SITE</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>CLIENT'S TESTIMONIALS</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-content">"The precision and industrial aesthetic Framecape brought to our
+                        platform was revolutionary. Overall improved strategy."</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Joseph K</h4>
+                            <span>Varkala, Kerala</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-content">"Unmatched reliability. They don't just build websites; they build
+                        unbreachable digital infrastructures."</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Elena M</h4>
+                            <span>Varkala, Kerala</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>PRICING</h2>
+            </div>
+            <div class="pricing-grid">
+                <!-- Tier 01 -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <span class="pricing-tier">Static Website</span>
+                        <div class="pricing-cost">
+                            <span class="currency">₹</span>
+                            <span class="amount">1,999</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="icon">✓</span> Landing Page</li>
+                        <li><span class="icon">✓</span> Static Page</li>
+                        <li><span class="icon">✓</span> Industrial Grade Performance</li>
+                        <li><span class="icon">✓</span> 7-Days Support</li>
+                        <li><span class="icon">✓</span> Up to 5 Static Pages</li>
+                    </ul>
+                    <a href="javascript:void(0)" id="pay-core" class="pricing-btn">BUY NOW</a>
+                </div>
+
+                <!-- Tier 02 -->
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">HOT</div>
+                    <div class="pricing-header">
+                        <span class="pricing-tier">Static Website + Basic SEO</span>
+                        <div class="pricing-cost">
+                            <span class="currency">₹</span>
+                            <span class="amount">2,999</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="icon">✓</span> Multi-Page Ecosystem</li>
+                        <li><span class="icon">✓</span> Advanced UI/UX Protocol</li>
+                        <li><span class="icon">✓</span> Basic SEO</li>
+                        <li><span class="icon">✓</span> XML Sitemap Submission</li>
+                        <li><span class="icon">✓</span> Meta Title & Description Optimization</li>
+                    </ul>
+                    <a href="javascript:void(0)" id="pay-propulsion" class="pricing-btn featured-btn">BUY NOW</a>
+                </div>
+
+                <!-- Tier 03 -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <span class="pricing-tier">Website Redesign</span>
+                        <div class="pricing-cost">
+                            <span class="currency">₹</span>
+                            <span class="amount">799 - 1999</span>
+                        </div>
+                        <span class="pricing-note">(Price varies based on requirement)</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="icon">✓</span> Attractive Redesign</li>
+                        <li><span class="icon">✓</span> Performance Tuning If Not Done</li>
+                        <li><span class="icon">✓</span> Responsive Refactor</li>
+                        <li><span class="icon">✓</span> Bug Fixing</li>
+                    </ul>
+                    <div class="redesign-input-wrapper">
+                        <span class="input-label">CUSTOM BUDGET</span>
+                        <input type="number" id="redesignAmount" class="industrial-input" placeholder="799 - 1999"
+                            min="799" max="1999">
+                    </div>
+                    <button onclick="payRedesign()" class="pricing-btn" style="cursor: pointer; width: 100%;">BUY
+                        NOW</button>
+                </div>
+
+                <!-- Tier 04 -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <span class="pricing-tier">Dynamic Website</span>
+                        <div class="pricing-cost">
+                            <span class="currency">₹</span>
+                            <span class="amount">7,999</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="icon">✓</span> User Authentication System</li>
+                        <li><span class="icon">✓</span> Content Management</li>
+                        <li><span class="icon">✓</span> Full Security Audit</li>
+                        <li><span class="icon">✓</span> Admin Dashboard</li>
+                        <li><span class="icon">✓</span> 30-Days Support</li>
+                    </ul>
+                    <a href="javascript:void(0)" id="pay-kinetic" class="pricing-btn">BUY NOW</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contact" class="footer-industrial">
+
+
+        <div class="container">
+
+
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="#" class="logo"><span style="color: #ff0000;">F</span>RAME<span class="cape-suffix"><span
+                                style="color: #777474;">C</span>APE</span><span style="color: #888888;">.</span></a>
+                    <p class="brand-desc">Architecting the digital revolution with industrial-grade precision. Chosing
+                        quality over quantity, fastened with powerful AI tools.</p>
+                </div>
+
+                <div class="footer-nav-col">
+                    <h4>Quick Links</h4>
+                    <a href="#services">Services</a>
+                    <a href="#work">Work Archive</a>
+                    <a href="#contact">Contact</a>
+                </div>
+
+                <div class="footer-nav-col">
+                    <h4>Terms & Conditions</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Engagement</a>
+                    <a href="#">Security Audit</a>
+                    <a href="#">Open Source</a>
+                </div>
+
+                <div class="footer-nav-col">
+                    <h4>Contact @</h4>
+                    <a href="mailto:commiewebdevelopment@gmail.com"
+                        class="footer-email">commiewebdevelopment@gmail.com</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © All rights reserved by Framecape.
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js" crossorigin="anonymous" defer></script>
+    <script>
+        /* 
+         * FRAMECAPE SECURITY PROTOCOL v2.0
+         * Secure Enclosure for Financial Logic
+         */
+        (() => {
+            "use strict";
+
+            // FORCE CLEAR SERVICE WORKERS (To bypass Workbox cache)
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistrations().then(registrations => {
+                    for (let registration of registrations) {
+                        registration.unregister();
+                        console.log("SERVICE_WORKER_TERMINATED");
+                    }
+                });
+            }
+
+            const CONFIG = {
+                limits: { min: 799, max: 1999 },
+                apiBase: 'https://framecape.onrender.com' // Automatically detects if running on localhost:3000 or production
+            };
+
+            // INTERNAL STATE FOR RATE LIMITING
+            const state = {
+                lastNotify: 0,
+                lastPayment: 0,
+                cooldown: 2000 // 2 second safety gap
+            };
+
+            // SECURE NOTIFICATION SYSTEM (XSS PROTECTED + RATE LIMITED)
+            const showNotify = (message, type = 'SYSTEM') => {
+                const now = Date.now();
+                if (now - state.lastNotify < 500) return; // Limit to 2 per second
+                state.lastNotify = now;
+
+                const zone = document.getElementById('notification-zone');
+                if (!zone) return;
+
+                const id = 'notif-' + now;
+                const item = document.createElement('div');
+                item.className = 'notify-item';
+                item.id = id;
+
+                const scanline = document.createElement('div');
+                scanline.className = 'notify-scanline';
+
+                const header = document.createElement('div');
+                header.className = 'notify-header';
+
+                const tag = document.createElement('span');
+                tag.className = 'notify-tag';
+                tag.textContent = `${type}_ALERT`;
+
+                const content = document.createElement('div');
+                content.className = 'notify-content';
+                content.textContent = message;
+
+                const timer = document.createElement('div');
+                timer.className = 'notify-timer';
+
+                header.appendChild(tag);
+                item.append(scanline, header, content, timer);
+                zone.appendChild(item);
+
+                requestAnimationFrame(() => item.classList.add('active'));
+
+                setTimeout(() => {
+                    item.classList.remove('active');
+                    setTimeout(() => item.remove(), 600);
+                }, 5000);
+            };
+
+            // EXPOSE showNotify globally for other modules (safely)
+            window.framecapeNotify = showNotify;
+
+            // PRIVATE PAYMENT ORCHESTRATOR (SECURE REFACTOR)
+            const initiatePayment = async (amount, description) => {
+                const now = Date.now();
+                if (now - state.lastPayment < state.cooldown) {
+                    showNotify("⚠️ PROTOCOL_DELAY: Please wait before re-initiating.", "SYS");
+                    return;
+                }
+                state.lastPayment = now;
+
+                try {
+                    console.log(`Initiating payment for ${amount}: ${description}`);
+                    showNotify("INITIATING_PROTOCOL: Synchronizing with server...", "SYS");
+                    
+                    if (typeof Razorpay === 'undefined') {
+                        throw new Error("Razorpay SDK not loaded. Please check your internet or refresh.");
+                    }
+
+                    // 1. Create Order on Backend
+                    const response = await fetch(`${CONFIG.apiBase}/create-order`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ amount, description })
+                    });
+
+                    const order = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(order.details || 'Failed to sync with server');
+                    }
+
+                    console.log("Order Created:", order.id);
+
+                    // 2. Fetch Key and Open Razorpay Checkout
+                    const { key } = await fetch(`${CONFIG.apiBase}/get-key`).then(r => r.json());
+
+                    const options = {
+                        key: key,
+                        amount: order.amount,
+                        currency: order.currency,
+                        name: "Framecape",
+                        description: description,
+                        order_id: order.id,
+                        handler: async (response) => {
+                            try {
+                                showNotify("VERIFYING_PROTOCOL: Authenticating signature...", "SYS");
+                                
+                                const verifyRes = await fetch(`${CONFIG.apiBase}/verify-payment`, {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify({
+                                        razorpay_order_id: response.razorpay_order_id,
+                                        razorpay_payment_id: response.razorpay_payment_id,
+                                        razorpay_signature: response.razorpay_signature
+                                    })
+                                });
+
+                                const verification = await verifyRes.json();
+
+                                if (verification.verified) {
+                                    showNotify("TRANSACTION_SECURED: Redirecting...", "CORE");
+                                    // Build thank-you URL with transaction details
+                                    const params = new URLSearchParams({
+                                        payment_id: response.razorpay_payment_id,
+                                        order_id:   response.razorpay_order_id,
+                                        plan:       encodeURIComponent(description),
+                                        amount:     String(amount)
+                                    });
+                                    setTimeout(() => {
+                                        window.location.href = `thank-you.html?${params.toString()}`;
+                                    }, 800);
+                                } else {
+                                    showNotify("⚠️ SECURITY_BREACH: Payment Verification Failed!", "SEC");
+                                    showNotify("❌ Verification failed. Contact support with Payment ID: " + response.razorpay_payment_id, "SEC");
+                                }
+                            } catch (err) {
+                                console.error("Verification Error:", err);
+                                showNotify("⚠️ PROTOCOL_ERROR: Verification sync failed.", "SEC");
+                                showNotify("Contact support with Payment ID: " + response.razorpay_payment_id, "SEC");
+                            }
+                        },
+                        prefill: {
+                            name: "Client",
+                            email: "client@framecape.dev"
+                        },
+                        theme: { color: "#ff0000" }
+                    };
+                    
+                    const rzp = new Razorpay(options);
+                    rzp.on('payment.failed', (resp) => {
+                        showNotify("⚠️ TRANSACTION_FAILED: " + resp.error.description, "SEC");
+                        showNotify("Please refresh the page and try again, or contact support.", "SEC");
+                    });
+                    rzp.open();
+
+                } catch (error) {
+                    console.error("Payment Error:", error);
+                    showNotify("⚠️ CRITICAL_ERROR: Setup failed.", "SEC");
+                    alert("⚠️ ERROR: " + error.message);
+                }
+            };
+
+            // INITIALIZATION PROTOCOL
+            const initHandlers = () => {
+                console.log("INITIATING_SECURITY_HANDSHAKE...");
+                
+                // Tier 01-02-04 bindings
+                const pricingMap = {
+                    'pay-core':       { amt: 1999, desc: "CORE CANVAS - Static Website" },
+                    'pay-propulsion': { amt: 2999, desc: "PROPULSION SEO - Static + SEO" },
+                    'pay-kinetic':    { amt: 7999, desc: "KINETIC FRAMEWORK - Dynamic Website" }
+                };
+
+                Object.entries(pricingMap).forEach(([id, data]) => {
+                    const btn = document.getElementById(id);
+                    if (btn) {
+                        console.log(`Setting up handler for: ${id}`);
+                        btn.onclick = (e) => {
+                            e.preventDefault();
+                            console.log(`Click detected on: ${id}`);
+                            initiatePayment(data.amt, data.desc);
+                        };
+                    } else {
+                        console.warn(`Button not found: ${id}`);
+                    }
+                });
+
+                // Custom Redesign Logic
+                window.payRedesign = () => {
+                    console.log("Redesign payment requested");
+                    const input = document.getElementById("redesignAmount");
+                    let amount = parseInt(input.value);
+
+                    if (isNaN(amount) || amount < CONFIG.limits.min || amount > CONFIG.limits.max) {
+                        showNotify(`⚠️ PROTOCOL_ERROR: Budget outside valid range (${CONFIG.limits.min}-${CONFIG.limits.max})`, "SEC");
+                        return;
+                    }
+
+                    initiatePayment(amount, "SYSTEM METAMORPH - Website Redesign");
+                };
+                
+                console.log("SECURITY_PROTOCOL_ONLINE");
+            };
+
+            // Run immediately if DOM is ready, otherwise wait
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initHandlers);
+            } else {
+                initHandlers();
+            }
+
+        })();
+    </script>
+    <script src="main.js"></script>
+</body>
+
+</html>
