@@ -394,7 +394,10 @@ function renderBlogPost(post, allPosts) {
 <meta name="twitter:description" content="${metaDesc}">
 <meta name="twitter:image" content="${ogImage}">
 
-<link rel="icon" href="/Favicon.jpg" type="image/jpeg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.jpg" type="image/jpeg">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 <script type="application/ld+json">
 ${JSON.stringify(jsonLd, null, 2)}

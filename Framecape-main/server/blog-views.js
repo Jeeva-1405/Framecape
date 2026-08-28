@@ -206,7 +206,10 @@ function renderBlogList(featured, posts) {
 <meta name="twitter:description" content="Notes on the build — DPDP compliance, hand-coded web development, and what we're learning from real client work.">
 <meta name="twitter:image" content="https://framecape.com/ironclad.png">
 
-<link rel="icon" href="/Favicon.jpg" type="image/jpeg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.jpg" type="image/jpeg">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://framecape.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://framecape.com/blog"}]}
