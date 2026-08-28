@@ -166,8 +166,11 @@ function renderBlogList(featured, posts) {
   // Merge featured + rest into a single unified list so all cards are identical
   const allPosts = featured ? [featured, ...posts] : posts;
 
-  const postsHtml = allPosts.map(p => `
-    <a href="${p.link}" target="_blank" rel="noopener noreferrer" class="card">
+  const postsHtml = allPosts.map(p => {
+    const href = p.slug ? `/blog/${p.slug}` : p.link;
+    const isExternal = !p.slug;
+    return `
+    <a href="${href}"${isExternal ? ' target="_blank" rel="noopener noreferrer"' : ''} class="card">
       <div class="card-thumb">${p.image ? `<img src="${p.image}" alt="Cover image for blog post: ${p.title}" loading="lazy">` : ''}</div>
       <div class="card-body">
         <h3>${p.title}</h3>
@@ -178,7 +181,8 @@ function renderBlogList(featured, posts) {
         </div>
       </div>
     </a>
-  `).join('');
+  `;
+  }).join('');
 
   return `<!DOCTYPE html>
 <html lang="en">

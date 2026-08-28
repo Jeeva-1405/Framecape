@@ -6,6 +6,7 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 const { renderBlogList } = require("./blog-views");
+const { renderBlogPost, slugify } = require("./blog-post-template");
 const startKeepAlive = require("./utils/keepAlive");
 
 const app = express();
@@ -113,7 +114,8 @@ app.get("/blog", (req, res) => {
 });
 
 app.get("/sitemap-blog.xml", (req, res) => {
-  const baseUrl = req.protocol + '://' + req.get('host');
+  const baseUrl = 'https://framecape.com';
+  const blogs = readBlogs();
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
   xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
   xml += `  <url>\n`;
@@ -121,9 +123,31 @@ app.get("/sitemap-blog.xml", (req, res) => {
   xml += `    <changefreq>weekly</changefreq>\n`;
   xml += `    <priority>0.9</priority>\n`;
   xml += `  </url>\n`;
+  blogs.forEach(post => {
+    if (post.slug) {
+      xml += `  <url>\n`;
+      xml += `    <loc>${baseUrl}/blog/${post.slug}</loc>\n`;
+      xml += `    <lastmod>${post.date ? post.date.slice(0, 10) : new Date().toISOString().slice(0, 10)}</lastmod>\n`;
+      xml += `    <changefreq>monthly</changefreq>\n`;
+      xml += `    <priority>0.8</priority>\n`;
+      xml += `  </url>\n`;
+    }
+  });
   xml += `</urlset>`;
   res.set('Content-Type', 'text/xml');
   res.send(xml);
+});
+
+// GET /blog/:slug — full article page
+app.get("/blog/:slug", (req, res) => {
+  const blogs = readBlogs();
+  const post = blogs.find(b => b.slug === req.params.slug);
+  if (!post) {
+    return res.status(404).send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Post Not Found | Framecape Blog</title><link rel="stylesheet" href="/style.css"></head><body style="display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:Inter,sans-serif;"><div style="text-align:center;"><p style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#A39E96;margin-bottom:16px;">404</p><h1 style="font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,42px);">Post not found.</h1><a href="/blog" style="display:inline-block;margin-top:24px;color:#E8362A;">← Back to blog</a></div></body></html>`);
+  }
+  const allBlogs = readBlogs().sort((a, b) => new Date(b.date) - new Date(a.date));
+  const html = renderBlogPost(post, allBlogs);
+  res.send(html);
 });
 
 
@@ -209,21 +233,30 @@ app.delete("/api/interns/:certId", requireApiKey, (req, res) => {
 });
 
 app.post("/api/blog", requireApiKey, (req, res) => {
-  const { title, description, date, link, image } = req.body;
+  const { title, description, date, link, image, content, slug } = req.body;
   
-  if (!title || !description || !date || !link) {
-    return res.status(400).json({ error: "title, description, date, and link are required." });
+  if (!title || !description || !date) {
+    return res.status(400).json({ error: "title, description, and date are required." });
   }
 
   const list = readBlogs();
+  const postSlug = slug || slugify(title);
+
+  // Ensure slug is unique
+  const slugExists = list.some(b => b.slug === postSlug);
+  if (slugExists) {
+    return res.status(409).json({ error: `Slug "${postSlug}" is already in use. Provide a unique slug field.` });
+  }
   
   const post = {
     id: crypto.randomBytes(8).toString("hex"),
+    slug: postSlug,
     title,
     description,
     date,
-    link,
-    image: image || null   // optional: full URL to a cover image
+    link: link || `https://framecape.com/blog/${postSlug}`,  // default to internal URL
+    image: image || null,
+    content: content || null   // full HTML body of the article
   };
 
   list.unshift(post);
@@ -236,15 +269,18 @@ app.put("/api/blog/:id", requireApiKey, (req, res) => {
   const idx = list.findIndex(b => b.id === req.params.id);
   if (idx === -1) return res.status(404).json({ error: "Blog post not found." });
 
-  let { title, description, date, link, image } = req.body;
+  let { title, description, date, link, image, content, slug } = req.body;
   const post = list[idx];
 
   if (title !== undefined) post.title = title;
   if (description !== undefined) post.description = description;
   if (date !== undefined) post.date = date;
   if (link !== undefined) post.link = link;
-  if (image !== undefined) post.image = image;  // pass null to remove, or a URL to set
+  if (image !== undefined) post.image = image;
+  if (content !== undefined) post.content = content;
+  if (slug !== undefined) post.slug = slug;
 
+  post.updatedAt = new Date().toISOString();
   list[idx] = post;
   writeBlogs(list);
   res.json(post);
