@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Internship Wall — Framecape</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="Favicon.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/rog-fonts" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #F8F6F1;
+      --ink: #17140F;
+      --steel: #6B6660;
+      --fog: #A39E96;
+      --line: rgba(23, 20, 15, 0.12);
+      --red: #E8362A;
+      --white: #FFFFFF;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 150px 8vw 120px;
+      box-sizing: border-box;
+    }
+
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+
+    .head h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(36px, 5.6vw, 60px);
+      line-height: 1.05;
+      max-width: 16ch;
+    }
+
+    .head h1 em {
+      color: var(--red);
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .head p {
+      margin-top: 18px;
+      color: var(--steel);
+      font-size: 15.5px;
+      line-height: 1.65;
+      max-width: 52ch;
+    }
+
+    .count {
+      margin-top: 26px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--fog);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .search-wrap {
+      margin-top: 36px;
+      max-width: 440px;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      border: 1.5px solid var(--ink);
+      border-radius: 8px;
+      padding: 12px 16px;
+    }
+
+    .search-box svg {
+      width: 16px;
+      height: 16px;
+      color: var(--fog);
+      flex-shrink: 0;
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      background: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--ink);
+      min-width: 0;
+    }
+
+    .search-box input:focus {
+      outline: none;
+    }
+
+    .search-box input::placeholder {
+      color: var(--fog);
+    }
+
+    .search-hint {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--fog);
+    }
+
+    .search-hint b {
+      color: var(--steel);
+      font-weight: 500;
+    }
+
+    .no-results {
+      display: none;
+      margin-top: 50px;
+      text-align: center;
+      color: var(--steel);
+      font-size: 14px;
+    }
+
+    .no-results.show {
+      display: block;
+    }
+
+    .grid {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 26px 24px;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    .verified {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #1E7A45;
+      background: #EAF6EE;
+      border-radius: 20px;
+      padding: 4px 9px;
+      flex-shrink: 0;
+    }
+
+    .verified svg {
+      width: 11px;
+      height: 11px;
+    }
+
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .track {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--steel);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 4px 10px;
+    }
+
+    .dur {
+      font-size: 11.5px;
+      color: var(--fog);
+    }
+
+    .card p {
+      font-size: 13px;
+      color: var(--steel);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+
+    .card-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+    }
+
+    .cert-id {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--fog);
+    }
+
+    .cert-link {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .wall-cta {
+      margin-top: 64px;
+      border-top: 1px solid var(--line);
+      padding-top: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .wall-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(22px, 2.8vw, 28px);
+    }
+
+    .wall-cta a {
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--white);
+      background: var(--ink);
+      border-radius: 7px;
+      padding: 12px 22px;
+      flex-shrink: 0;
+    }
+
+    @media (max-width:980px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width:640px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav3-bar">
+    <div class="nav3-inner">
+      <a href="/" class="nav3-logo" style="text-decoration:none; color:var(--ink);">FRAME<span>CAPE</span></a>
+      <div class="nav3-keys">
+        <a href="/#services" class="nav3-key">SERVICES</a>
+        <a href="/#work" class="nav3-key">WORK</a>
+        <a href="/#testimonials" class="nav3-key">REVIEWS</a>
+        <a href="/#pricing" class="nav3-key">PRICING</a>
+        <a href="/careers" class="nav3-key">CAREERS</a>
+        <a href="/internships" class="nav3-key">INTERNSHIPS</a>
+        <a href="/blog" class="nav3-key">BLOG</a>
+        <a href="/#contact" class="nav3-key cta">CONTACT ↵</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Alumni</div>
+      <h1>The internship <em>wall.</em></h1>
+      <p>Every student who's completed an internship at Framecape appears here.
+      </p>
+
+      <div class="search-wrap">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="certSearch" placeholder="Search by name or certificate ID…">
+        </div>
+        <div class="search-hint">Enter a name or ID to verify one.</div>
+      </div>
+    </div>
+
+    <div class="grid" id="internGrid"></div>
+
+    <div class="no-results" id="noResults">No matching certificates found.</div>
+
+    <div class="wall-cta">
+      <h2>Want to be on this wall?</h2>
+      <a href="/careers">See open roles →</a>
+    </div>
+  </div>
+
+  <script>
+    const API_BASE = '/api/interns';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('certSearch');
+      const internGrid = document.getElementById('internGrid');
+      const noResults = document.getElementById('noResults');
+
+      let debounceTimer;
+
+      const renderCards = (interns) => {
+        internGrid.innerHTML = '';
+        if (interns.length === 0) {
+          noResults.classList.add('show');
+        } else {
+          noResults.classList.remove('show');
+          interns.forEach(intern => {
+            const certUrl = intern.certificateUrl ? intern.certificateUrl : '#';
+            const pdfLink = intern.certificateUrl ? `<a href="${certUrl}" class="cert-link" target="_blank">View PDF ↗</a>` : '<span class="cert-link" style="color:var(--fog);">No file</span>';
+
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+              <div class="card-top" style="justify-content: flex-end; margin-bottom: 16px;">
+                <div class="verified">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                  Verified
+                </div>
+              </div>
+              <h3>${intern.name}</h3>
+              <div class="card-meta">
+                <span class="dur">${intern.duration}</span>
+              </div>
+              <p>${intern.description || ''}</p>
+              <div class="card-foot">
+                <span class="cert-id">ID: ${intern.certId}</span>
+                ${pdfLink}
+              </div>
+            `;
+            internGrid.appendChild(card);
+          });
+        }
+      };
+
+      const fetchInterns = async (query = '') => {
+        try {
+          // GET request to fetch list of interns
+          const url = query ? `${API_BASE}?q=${encodeURIComponent(query)}` : API_BASE;
+          const res = await fetch(url);
+          if (!res.ok) throw new Error('Failed to fetch');
+          const data = await res.json();
+          renderCards(data);
+        } catch (err) {
+          console.error(err);
+          internGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: var(--steel);">No certifications yet.</div>';
+        }
+      };
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          clearTimeout(debounceTimer);
+          const query = e.target.value.trim();
+          debounceTimer = setTimeout(() => {
+            fetchInterns(query);
+          }, 250);
+        });
+      }
+
+      // Initial fetch
+      fetchInterns();
+    });
+  </script>
+  <script src="/nav.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Framecape — Careers</title>
+  <link rel="icon" href="Favicon.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/rog-fonts" rel="stylesheet">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --paper: #FAFAF7;
+      --ink: #111110;
+      --grey: #6E6E68;
+      --fog: #C9C7C0;
+      --red: #D6321F;
+      --hair: rgba(17, 17, 16, 0.12);
+      --f-display: 'Fraunces', serif;
+      --f-body: 'Space Grotesk', sans-serif;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--f-body);
+    }
+
+    .page {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 150px 8vw 120px;
+      box-sizing: border-box;
+    }
+
+    .head {
+      padding: 64px 0 8px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .headline {
+      font-family: var(--f-display);
+      font-weight: 600;
+      font-size: clamp(40px, 8vw, 80px);
+      line-height: 1.1;
+    }
+
+    .headline em {
+      color: var(--red);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .head-sub {
+      color: var(--grey);
+      font-size: 16px;
+      line-height: 1.7;
+      margin-top: 20px;
+    }
+
+    section {
+      padding: 44px 0;
+      border-bottom: 1px solid var(--hair);
+    }
+
+    .label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .role-title {
+      font-family: var(--f-display);
+      font-weight: 600;
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .role-tags {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: var(--grey);
+    }
+
+    ol.duties {
+      list-style: none;
+      counter-reset: d;
+    }
+
+    ol.duties li {
+      counter-increment: d;
+      position: relative;
+      padding: 16px 0 16px 34px;
+      border-top: 1px solid var(--hair);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    ol.duties li:first-child {
+      border-top: none;
+    }
+
+    ol.duties li::before {
+      content: counter(d, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 16px;
+      font-family: var(--f-body);
+      font-size: 12px;
+      color: var(--red);
+    }
+
+    .tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px 10px;
+      font-size: 14px;
+      color: var(--ink);
+    }
+
+    .tools span:not(:last-child)::after {
+      content: '·';
+      color: var(--fog);
+      margin-left: 10px;
+    }
+
+    .fee-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 14px 0;
+      border-top: 1px solid var(--hair);
+      font-size: 14px;
+    }
+
+    .fee-row:first-of-type {
+      border-top: none;
+    }
+
+    .fee-row .k {
+      color: var(--grey);
+    }
+
+    .fee-row .v {
+      font-weight: 600;
+    }
+
+    .fee-row.total {
+      font-size: 16px;
+      align-items: center;
+    }
+
+    .price-action {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .original-price {
+      text-decoration: line-through;
+      color: var(--grey);
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .fee-row.total .v {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    .tooltip-container {
+      position: relative;
+      display: inline-flex;
+      margin-left: 8px;
+    }
+
+    .i-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--grey);
+      color: var(--white);
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      font-style: italic;
+      cursor: help;
+      transition: background 0.2s ease;
+    }
+
+    .tooltip-container:hover .i-button {
+      background: var(--ink);
+    }
+
+    .tooltip-content {
+      position: absolute;
+      bottom: calc(100% + 12px);
+      left: 0;
+      width: 320px;
+      max-width: none;
+      background: var(--ink);
+      color: var(--white);
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.6;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: all 0.2s ease;
+      z-index: 100;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    .tooltip-content p {
+      margin-bottom: 12px;
+    }
+
+    .tooltip-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .tooltip-container:hover .tooltip-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .reserve-cta:hover {
+      background: var(--red) !important;
+    }
+
+    /* ============ WALL TEASER ============ */
+    .teaser {
+      background: var(--paper);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .teaser h2 {
+      font-family: var(--f-display);
+      font-weight: 600;
+      font-size: clamp(24px, 3vw, 32px);
+      max-width: 16ch;
+      margin-bottom: 0;
+    }
+
+    .teaser p {
+      color: var(--grey);
+      font-size: 14px;
+      margin-top: 10px;
+      max-width: 40ch;
+      line-height: 1.6;
+    }
+
+    .teaser-link {
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--white);
+      background: var(--ink);
+      border: 1.5px solid var(--ink);
+      border-radius: 7px;
+      padding: 12px 22px;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .teaser-link:hover {
+      background: var(--red);
+      border-color: var(--red);
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav3-bar">
+    <div class="nav3-inner">
+      <a href="/" class="nav3-logo" style="text-decoration:none; color:var(--ink);">FRAME<span>CAPE</span></a>
+      <div class="nav3-keys">
+        <a href="/#services" class="nav3-key">SERVICES</a>
+        <a href="/#work" class="nav3-key">WORK</a>
+        <a href="/#testimonials" class="nav3-key">REVIEWS</a>
+        <a href="/#pricing" class="nav3-key">PRICING</a>
+        <a href="/careers" class="nav3-key">CAREERS</a>
+        <a href="/internships" class="nav3-key">INTERNSHIPS</a>
+        <a href="/blog" class="nav3-key">BLOG</a>
+        <a href="/#contact" class="nav3-key cta">CONTACT ↵</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page">
+    <section>
+      <div class="label">Role</div>
+      <div class="role-title">Fullstack + AI-Assisted Web Development Intern</div>
+      <div class="role-tags">
+        <span>Remote</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="label">What you'll do</div>
+      <ol class="duties">
+        <li>Learn and build with the real stack — HTML, CSS, JavaScript, React, and Node.js.</li>
+        <li>Pick a real time problem statement and independently design, develop, and fully deploy a working website by
+          the end of the internship.</li>
+        <li>Work on your live project under mentor guidance, from UI implementation to deployment.</li>
+        <li>Get hands on training on AI-assisted development tools Google Antigravity, Google Flow, and Stitch.</li>
+        <li>Learn to integrate REST APIs, third-party services, and AI model APIs in real projects.</li>
+        <li>Take part in debugging, code reviews, and feature development, then present your problem statement,
+          approach,
+          and live website to the team.</li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="label">Tools you'll use</div>
+      <div class="tools">
+        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Node.js</span>
+        <span>Google Antigravity</span><span>Google Flow</span><span>Stitch</span><span>REST APIs</span><span>AI Model
+          APIs</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="label">Program fee</div>
+      <div class="fee-row"><span class="k">Mentorship (weekly 1 to 1 session)</span><span class="v">Included</span>
+      </div>
+      <div class="fee-row"><span class="k">Certificate</span><span class="v">Included</span></div>
+      <div class="fee-row"><span class="k">Seats</span><span class="v">Limited</span></div>
+      <div class="fee-row total">
+        <span class="k" style="display: flex; align-items: center;">
+          Total
+          <div class="tooltip-container">
+            <span class="i-button">i</span>
+            <div class="tooltip-content">
+              <p>This is a training program, not a paid role. The fee is one time and covers mentorship, certificate for
+                the duration, nothing hidden after enrollment.</p>
+              <p>Questions before applying? Reach out through the contact page and we'll get back to you within a day.
+              </p>
+            </div>
+          </div>
+        </span>
+        <div class="price-action">
+          <span class="original-price">₹1499</span>
+          <a href="https://buy.stripe.com/test" class="reserve-cta"
+            style="display: inline-block; background: var(--ink); color: var(--white); text-decoration: none; padding: 16px 30px; font-size: 13.5px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; transition: background .18s ease;">Pay
+            ₹500</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="teaser">
+      <div>
+        <h2>See who's already done it.</h2>
+        <p>Every student who's completed an internship at Framecape, and what they built while they were here.</p>
+      </div>
+      <a href="/internships" class="teaser-link">View the internship wall →</a>
+    </section>
+
+  </div>
+  <script src="/nav.js"></script>
+</body>
+
+</html>
