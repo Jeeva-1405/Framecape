@@ -356,7 +356,7 @@ function renderBlogPost(post, allPosts) {
           "url": "https://framecape.com",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://framecape.com/Favicon.jpg"
+            "url": "https://framecape.com/favicon.jpg"
           }
         },
         "mainEntityOfPage": {
@@ -394,8 +394,10 @@ function renderBlogPost(post, allPosts) {
 <meta name="twitter:description" content="${metaDesc}">
 <meta name="twitter:image" content="${ogImage}">
 
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" href="/favicon.jpg" type="image/jpeg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/jpeg" href="/favicon.jpg">
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 

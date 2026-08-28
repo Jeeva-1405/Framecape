@@ -206,8 +206,10 @@ function renderBlogList(featured, posts) {
 <meta name="twitter:description" content="Notes on the build — DPDP compliance, hand-coded web development, and what we're learning from real client work.">
 <meta name="twitter:image" content="https://framecape.com/ironclad.png">
 
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" href="/favicon.jpg" type="image/jpeg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/jpeg" href="/favicon.jpg">
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
