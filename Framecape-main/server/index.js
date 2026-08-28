@@ -12,13 +12,40 @@ const startKeepAlive = require("./utils/keepAlive");
 const app = express();
 const PORT = process.env.PORT || 4000;
 const API_KEY = process.env.FRAMECAPE_API_KEY || "REPLACE_WITH_YOUR_OWN_SECRET";
-const DB_FILE = path.join(__dirname, "interns.json");
-const BLOG_DB_FILE = path.join(__dirname, "blogs.json");
-const CERT_DIR = path.join(__dirname, "uploads", "certificates");
 
-fs.mkdirSync(CERT_DIR, { recursive: true });
-if (!fs.existsSync(DB_FILE)) fs.writeFileSync(DB_FILE, "[]");
-if (!fs.existsSync(BLOG_DB_FILE)) fs.writeFileSync(BLOG_DB_FILE, "[]");
+// ── Persistent data directory ───────────────────────────────────────────────
+// Locally: defaults to this server/ folder (no change to current behaviour).
+// On production with a persistent disk (e.g. Render Disk mounted at /data):
+//   Set DATA_DIR=/data in your environment variables.
+//   Files written there survive redeploys. The server will seed from
+//   server/seeds/ on first run if the data files don't yet exist.
+const DATA_DIR = process.env.DATA_DIR
+  ? path.resolve(process.env.DATA_DIR)
+  : __dirname;
+
+const SEEDS_DIR  = path.join(__dirname, 'seeds');
+const DB_FILE    = path.join(DATA_DIR, 'interns.json');
+const BLOG_DB_FILE = path.join(DATA_DIR, 'blogs.json');
+const CERT_DIR   = path.join(DATA_DIR, 'uploads', 'certificates');
+
+// ── Bootstrap data files ─────────────────────────────────────────────────────
+function seedIfMissing(targetPath, seedName) {
+  if (!fs.existsSync(targetPath)) {
+    const seedPath = path.join(SEEDS_DIR, seedName);
+    if (fs.existsSync(seedPath)) {
+      fs.copyFileSync(seedPath, targetPath);
+      console.log(`  Seeded ${seedName} from seeds/ (first run)`);
+    } else {
+      fs.writeFileSync(targetPath, '[]');
+      console.log(`  Created empty ${seedName}`);
+    }
+  }
+}
+
+fs.mkdirSync(DATA_DIR,  { recursive: true });
+fs.mkdirSync(CERT_DIR,  { recursive: true });
+seedIfMissing(DB_FILE,      'interns.json');
+seedIfMissing(BLOG_DB_FILE, 'blogs.json');
 
 app.use(cors());
 app.use(express.json());
@@ -156,6 +183,35 @@ app.get("/blog/:slug", (req, res) => {
 app.get("/api/blog", (req, res) => {
   const list = readBlogs().sort((a, b) => new Date(b.date) - new Date(a.date));
   res.json(list);
+});
+
+// GET /api/blog/export — dump current blogs.json (protected)
+// Use this before every git push to capture API-added posts.
+// Copy the JSON → overwrite server/seeds/blogs.json → commit → push.
+app.get("/api/blog/export", requireApiKey, (req, res) => {
+  const list = readBlogs();
+  res.setHeader('Content-Disposition', 'attachment; filename="blogs-export.json"');
+  res.setHeader('Content-Type', 'application/json');
+  res.send(JSON.stringify(list, null, 2));
+});
+
+// POST /api/blog/sync-seed — writes current runtime data back into seeds/
+// so the NEXT fresh deploy will start with this dataset (protected).
+// Call this from Postman after adding new posts, then git-commit seeds/blogs.json.
+app.post("/api/blog/sync-seed", requireApiKey, (req, res) => {
+  const list = readBlogs();
+  const seedPath = path.join(__dirname, 'seeds', 'blogs.json');
+  try {
+    fs.mkdirSync(path.dirname(seedPath), { recursive: true });
+    fs.writeFileSync(seedPath, JSON.stringify(list, null, 2));
+    res.json({
+      ok: true,
+      message: `seeds/blogs.json updated with ${list.length} posts. Now commit server/seeds/blogs.json and push.`,
+      posts: list.length,
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 
@@ -298,6 +354,8 @@ app.delete("/api/blog/:id", requireApiKey, (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Framecape API running on http://localhost:${PORT}`);
+  console.log(`📂 Data directory: ${DATA_DIR}`);
+  console.log(`📝 Blog posts loaded: ${readBlogs().length}`);
   if (API_KEY === "REPLACE_WITH_YOUR_OWN_SECRET") {
     console.log(`⚠️  WARNING: Using the default API key. Set FRAMECAPE_API_KEY in .env and restart.`);
   } else {
