@@ -168,7 +168,7 @@ function renderBlogList(featured, posts) {
 
   const postsHtml = allPosts.map(p => `
     <a href="${p.link}" target="_blank" rel="noopener noreferrer" class="card">
-      <div class="card-thumb">${p.image ? `<img src="${p.image}" alt="${p.title}">` : ''}</div>
+      <div class="card-thumb">${p.image ? `<img src="${p.image}" alt="Cover image for blog post: ${p.title}" loading="lazy">` : ''}</div>
       <div class="card-body">
         <h3>${p.title}</h3>
         <p>${p.description}</p>
@@ -184,10 +184,33 @@ function renderBlogList(featured, posts) {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Blog — Framecape</title>
-<meta name="description" content="Notes on the build. DPDP compliance, hand-coded web development, and what we're learning from real client work.">
+<title>Web Development Blog | Framecape — Salem, Tamil Nadu</title>
+<meta name="description" content="The Framecape blog — DPDP compliance, hand-coded web development, UI/UX, and digital strategy from a studio in Salem, Tamil Nadu that actually builds things.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="canonical" href="https://framecape.com/blog">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://framecape.com/blog">
+<meta property="og:title" content="Web Development Blog | Framecape — Salem, Tamil Nadu">
+<meta property="og:description" content="Notes on the build — DPDP compliance, hand-coded web development, and what we're learning from real client work.">
+<meta property="og:image" content="https://framecape.com/ironclad.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://framecape.com/blog">
+<meta name="twitter:title" content="Web Development Blog | Framecape — Salem, Tamil Nadu">
+<meta name="twitter:description" content="Notes on the build — DPDP compliance, hand-coded web development, and what we're learning from real client work.">
+<meta name="twitter:image" content="https://framecape.com/ironclad.png">
+
+<link rel="icon" href="/Favicon.jpg" type="image/jpeg">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://framecape.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://framecape.com/blog"}]}
+<\/script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.cdnfonts.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 ${styles}
